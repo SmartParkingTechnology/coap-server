@@ -11,7 +11,8 @@
     "test": "mocha ./dist/test --exit",
     "coverage": "c8 -a --reporter=lcov --reporter=text --reporter=html npm run test",
     "lint": "eslint *.ts",
-    "lint:fix": "eslint *.ts --fix"
+    "lint:fix": "eslint *.ts --fix",
+    "server": "node examples/server.js"
   },
   "repository": {
     "type": "git",
