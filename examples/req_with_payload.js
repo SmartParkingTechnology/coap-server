@@ -3,7 +3,12 @@ const coap = require('../') // or coap
 coap.createServer((req, res) => {
     res.end('Hello ' + req.url.split('/')[1] + '\nMessage payload:\n' + req.payload + '\n')
 }).listen(() => {
-    const req = coap.request('coap://localhost/Matteo')
+    // const req = coap.request('coap://localhost/Matteo')
+    const req = coap.request({
+        hostname: 'localhost',
+        pathname: 'Arif',
+        observe: true
+    })
 
     const payload = {
         title: 'this is a test payload',

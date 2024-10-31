@@ -47,3 +47,7 @@ lib-cov
 
 # typescript output
 dist
+
+# dotenv environment variables file
+.env
+.env.test

@@ -109,7 +109,7 @@ function TestClient () { // eslint-disable-line no-unused-vars
 }
 // Choose yer poison
 
-TestPut()
-// TestGet()
-// TestServer()
-// TestClient()
+//TestPut()
+ TestGet()
+//TestServer()
+ //TestClient()

@@ -1,5 +1,10 @@
 const coap = require('../') // or coap
-const req = coap.request('coap://34.151.64.135/Kin')
+const req = coap.request({
+    hostname: 'localhost',
+    pathname: 'Arif'
+})
+
+req.write('Hello World!')
 
 req.on('response', (res) => {
     res.pipe(process.stdout)

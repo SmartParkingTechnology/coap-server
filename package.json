@@ -55,11 +55,12 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "bl": "^6.0.12",
     "@types/readable-stream": "^4.0.14",
+    "bl": "^6.0.12",
     "capitalize": "^2.0.4",
     "coap-packet": "^1.1.1",
     "debug": "^4.3.5",
+    "dotenv": "^16.4.5",
     "fastseries": "^2.0.0",
     "lru-cache": "^10.2.2",
     "readable-stream": "^4.5.2"
@@ -73,6 +74,8 @@
     "dist/index.js.map",
     "dist/models",
     "dist/lib",
-    "examples/"
+    "examples/",
+    "environment/",
+    "keyfile/"
   ]
 }

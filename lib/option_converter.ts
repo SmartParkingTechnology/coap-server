@@ -15,7 +15,7 @@ const optionFromBinaryFunctions = {}
 // list of options silently ignored
 const ignoredOptions = {}
 
-export function toBinary (name: string, value: Buffer | any): Buffer {
+export function toBinary(name: string, value: Buffer | any): Buffer {
     if (Buffer.isBuffer(value)) {
         return value
     }
@@ -27,7 +27,7 @@ export function toBinary (name: string, value: Buffer | any): Buffer {
     return optionToBinaryFunctions[name](value)
 }
 
-export function fromBinary (name: string, value: Buffer): any {
+export function fromBinary(name: string, value: Buffer): any {
     const convert = optionFromBinaryFunctions[name]
 
     if (convert == null) {
@@ -37,12 +37,12 @@ export function fromBinary (name: string, value: Buffer): any {
     return convert(value)
 }
 
-export function registerOption (name: string, toBinary: (value: OptionValue) => Buffer | null, fromBinary: (value: Buffer) => OptionValue | null): void {
+export function registerOption(name: string, toBinary: (value: OptionValue) => Buffer | null, fromBinary: (value: Buffer) => OptionValue | null): void {
     optionFromBinaryFunctions[name] = fromBinary
     optionToBinaryFunctions[name] = toBinary
 }
 
-export function ignoreOption (name: string): void {
+export function ignoreOption(name: string): void {
     ignoredOptions[name] = true
 }
 
@@ -50,7 +50,7 @@ ignoreOption('Cache-Control')
 ignoreOption('Content-Length')
 ignoreOption('Accept-Ranges')
 
-export function isIgnored (name: string): boolean {
+export function isIgnored(name: string): boolean {
     return ignoredOptions[name] != null
 }
 
@@ -103,7 +103,7 @@ const formatsBinaries = {}
  * @param name Media-Type and parameters.
  * @param value The numeric code of the Content-Format.
  */
-export function registerFormat (name: string, value: number): void {
+export function registerFormat(name: string, value: number): void {
     const bytes = numberToBuffer(value)
 
     formatsString[name] = bytes
@@ -166,7 +166,7 @@ for (const [name, value] of Object.entries(supportedContentFormats)) {
     registerFormat(name, value)
 }
 
-function contentFormatToBinary (value: string | number): Buffer {
+function contentFormatToBinary(value: string | number): Buffer {
     if (typeof value === 'number') {
         return numberToBuffer(value)
     }
@@ -183,7 +183,7 @@ function contentFormatToBinary (value: string | number): Buffer {
     return result
 }
 
-function contentFormatToString (value: Buffer): string | number | null {
+function contentFormatToString(value: Buffer): string | number | null {
     if (value.length === 0) {
         return formatsBinaries[0]
     }
@@ -236,7 +236,7 @@ registerOption('Observe', (sequence: number) => {
     return result
 })
 
-function numberToBuffer (value: number): Buffer {
+function numberToBuffer(value: number): Buffer {
     let buffer: Buffer
 
     if (value > 255) {
